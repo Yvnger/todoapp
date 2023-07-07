@@ -1,0 +1,54 @@
+.form {
+    &__wrap {
+        display: flex;
+        align-items: center;
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 0.3125rem;
+        background-color: var(--form-bg, #25273d);
+        box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.50);
+    }
+
+    &__input {
+        @include reset;
+        flex: 1 0 auto;
+        margin-right: 24px;
+        font-weight: 400;
+        font-size: 1.125rem;
+        color: #c8cbe7;
+        caret-color: #3a7cfd;
+
+        &::selection {
+            background-color: #3a7cfd;
+            color: white;
+        }
+
+        &::placeholder {
+            color: #767992;
+        }
+    }
+
+    &__button {
+        @include reset;
+        display: block;
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 11H13V6H11V11H6V13H11V18H13V13H18V11Z' fill='white'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        cursor: pointer;
+        opacity: .5;
+        pointer-events: auto;
+        transition: opacity var(--transition-duration) var(--transition-function);
+
+        &:hover {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    &__input:placeholder-shown + &__button {
+        opacity: 0;
+        pointer-events: none;
+    }
+}

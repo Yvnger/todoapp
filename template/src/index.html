@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="css/main.min.css">
+    <title>TodoApp</title>
+</head>
+
+<body>
+    <main id="app">
+        <div class="container">
+            <header class="header">
+                <h1 class="header__logo">Todo</h1>
+            </header>
+
+            <form action="" class="form">
+                <div class="form__wrap">
+                    <input type="text" class="form__input" placeholder="Что нужно сделать?">
+                    <button class="btn form__button" aria-label="Добавить задачу"></button>
+                </div>
+            </form>
+
+            <section class="tasks">
+                <ul class="tasks__list">
+                    <li class="tasks__item tasks__item_done">
+                        <label class="checkbox">
+                            <input type="checkbox" checked>
+                            <span class="checkbox__checkmark"></span>
+                        </label>
+
+                        <span class="tasks__text">
+                            Complete online JavaScript course
+                        </span>
+
+                        <button class="btn tasks__remove" aria-label="Удалить задачу"></button>
+                    </li>
+
+
+                    <li class="tasks__item">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox__checkmark"></span>
+                        </label>
+
+                        <span class="tasks__text">
+                            Jog around the park 3x
+                        </span>
+
+                        <button class="btn tasks__remove" aria-label="Удалить задачу"></button>
+                    </li>
+
+
+                    <li class="tasks__item">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox__checkmark"></span>
+                        </label>
+
+                        <span class="tasks__text">
+                            10 minutes meditation
+                        </span>
+
+                        <button class="btn tasks__remove" aria-label="Удалить задачу"></button>
+                    </li>
+
+
+                    <li class="tasks__item">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox__checkmark"></span>
+                        </label>
+
+                        <span class="tasks__text">
+                            Read for 1 hour
+                        </span>
+
+                        <button class="btn tasks__remove" aria-label="Удалить задачу"></button>
+                    </li>
+
+
+                    <li class="tasks__item">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox__checkmark"></span>
+                        </label>
+
+                        <span class="tasks__text">
+                            Pick up groceries
+                        </span>
+
+                        <button class="btn tasks__remove" aria-label="Удалить задачу"></button>
+                    </li>
+
+                    <li class="tasks__item">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox__checkmark"></span>
+                        </label>
+
+                        <span class="tasks__text">
+                            Complete Todo App on Frontend Mentor
+                        </span>
+
+                        <button class="btn tasks__remove" aria-label="Удалить задачу"></button>
+                    </li>
+                </ul>
+
+                <div class="tasks__footer">
+                    <ul class="tasks__owner-list">
+                        <li class="tasks__owner-item tasks__owner-item_active"><a href="#" class="tasks__owner-link">Мои дела</a></li>
+                        <li class="tasks__owner-item"><a href="#" class="tasks__owner-link">Дела мамы</a></li>
+                        <li class="tasks__owner-item"><a href="#" class="tasks__owner-link">Дела папы</a></li>
+                    </ul>
+
+                    <a href="#" class="tasks__clear">Очистить</a>
+                </div>
+            </section>
+
+            <ul class="tasks__storage-list">
+                <li class="tasks__storage-item tasks__storage-item_active">
+                    <a href="#" class="tasks__storage-link">Локальное хранилище</a>
+                </li>
+                <li class="tasks__storage-item">
+                    <a href="#" class="tasks__storage-link">Серверное хранилище</a>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script src="js/main.js" type="module" defer></script>
+</body>
+
+</html>
