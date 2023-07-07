@@ -1,4 +1,5 @@
 import { getStorageType, setStorageType, getOwner, setOwner } from './handlers.js';
+import { updateTodoItem, deleteTodoItem } from './storages/storage.js';
 
 export function createHeader() {
     const header = document.createElement('header')
@@ -54,6 +55,7 @@ export function createList() {
 
 export function createTask({ id, name, done }) {
     const doneClass = 'tasks__item_done';
+    const changeEvent = new Event('updateStatus');
 
     const item = document.createElement('li');
     item.classList.add('tasks__item');
@@ -65,10 +67,12 @@ export function createTask({ id, name, done }) {
     checkboxInput.type = 'checkbox';
 
     if (done) {
-        checkboxInput.checked = true;
+        setTaskStatus(item, done)
     }
-    checkboxInput.addEventListener('change', () => {
-        item.classList.toggle(doneClass);
+
+    checkboxInput.addEventListener('change', async () => {
+        setTaskStatus(item, !done)
+        await updateTodoItem({ id, done });
     })
 
     const checkmark = document.createElement('span');
@@ -82,7 +86,8 @@ export function createTask({ id, name, done }) {
     remove.classList.add('btn', 'tasks__remove');
     remove.setAttribute('aria-label', 'Удалить задачу');
 
-    remove.addEventListener('click', () => {
+    remove.addEventListener('click', async () => {
+        await deleteTodoItem(id);
         item.remove();
     })
 
@@ -91,6 +96,16 @@ export function createTask({ id, name, done }) {
     checkboxWrap.append(checkmark);
     item.append(text);
     item.append(remove);
+
+    function setTaskStatus(item, done) {
+        if (done) {
+            checkboxInput.checked = true;
+            item.classList.add(doneClass);
+        } else {
+            checkboxInput.checked = true;
+            item.classList.remove(doneClass);
+        }
+    }
 
     return { item, remove };
 }

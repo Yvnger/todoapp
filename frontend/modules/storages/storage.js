@@ -37,15 +37,39 @@ export async function loadTodoItems() {
 }
 
 export async function createTodoItem({ name, owner }) {
-    const response = await fetch(API_URL, {
-        method: 'POST',
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                name: name,
+                owner: owner
+            })
+        });
+        const data = await response.json();
+    } catch (error) {
+        console.error('Error creating todo item:', error);
+    }
+}
+
+export async function updateTodoItem({ id, done }) {
+    const newStatus = !done;
+    console.log(newStatus);
+    const response = await fetch(API_URL + '/' + id, {
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            name: name,
-            owner: owner
-        })
+        body: JSON.stringify({ done: newStatus })
     });
     const data = await response.json();
     console.log(data);
 }
 
+export async function deleteTodoItem(id) {
+    const response = await fetch(API_URL + '/' + id, {
+        method: 'DELETE',
+    });
+    if (response.status === 404)
+        console.log('Не удалось удалить дело, так как его не существует');
+    const data = await response.json();
+    console.log(data);
+}

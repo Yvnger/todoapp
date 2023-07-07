@@ -1,7 +1,7 @@
 import { createHeader, createForm, createMainSection, createList, createTask, renderTaskList, createOwners, createStorageList } from "./modules/elements.js";
 import { OWNER_LIST, STORAGE_LIST } from './modules/constants.js';
 import { getOwner } from './modules/handlers.js';
-import { loadTodoItems, createTodoItem } from "./modules/storages/storage.js";
+import { loadTodoItems, createTodoItem, updateTodoItem, deleteTodoItem } from "./modules/storages/storage.js";
 
 (function () {
     const app = document.getElementById('app');
